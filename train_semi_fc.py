@@ -234,7 +234,7 @@ if __name__=='__main__':
 	dirname='Results/' #CHANGE DIRECTORY CHOICE HERE, .save file will be stored in this directory
 	name = dirname + 'smep'
 	hpd1 = create_hyp_param_combination(hidden_sizes = [500],
-		n_epochs=40,
+		n_epochs=10,
 		batch_size=20,
 		n_it_neg=20,
 		n_it_pos=4,
@@ -244,10 +244,10 @@ if __name__=='__main__':
 		alpha_tdep_type='constant',
 		dataset="mnist",
 		variant="normal",
-		alphas_fwd= [np.float32(0.2), np.float32(0.1)], #0.5, 0.375
+		alphas_fwd= [np.float32(0.5), np.float32(0.375)], #0.5, 0.375
         alphas_unsuper=[np.float32(0.001),np.float32(0.0005)],  #Update for unsupervised
-		alphas_lat=[np.float32(0.01)], #CHANGE ALPHA LATERAL HERR, 0.01
-        super_thr = np.float32(0.5),  # The ratio of superivsed samples, in the range of [0,1]
+		alphas_lat=[np.float32(0.01),np.float32(0.01)], #CHANGE ALPHA LATERAL HERR, 0.01
+        super_thr = np.float32(1),  # The ratio of superivsed samples, in the range of [0,1]
 	)
 	train_net_smep_mod(Network_SMEP_Mod(name, hpd1))
 	

@@ -155,8 +155,10 @@ class Network(object):
         #linear_terms -= sum([T.dot(rho(layer), b) for layer, b in zip(layers[1:(-1)], self.biases['lat'])])
         quadratic_terms = - sum([T.batched_dot(T.dot(self.rho(pre), W), self.rho(post)) for pre, W, post in
                                  zip(layers[:-1], self.weights['fwd'], layers[1:])]) #R
+        # quad_lat = sum([T.batched_dot(T.dot(self.rho(node), W), self.rho(node)) for W, node in
+        #                          zip(self.weights['lat'], layers[1:(-1)])]) / 2.0
         quad_lat = sum([T.batched_dot(T.dot(self.rho(node), W), self.rho(node)) for W, node in
-                                 zip(self.weights['lat'], layers[1:(-1)])]) / 2.0
+                        zip(self.weights['lat'], layers[1:])]) / 2.0
             #CHECK IF ONE SHOULD BE THE TRANSPOSE, AND IF CONSTANT FACTOR OF 0.5
         if longbool==0:
             return squared_norm + linear_terms + quadratic_terms +quad_lat

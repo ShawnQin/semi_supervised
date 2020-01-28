@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c968ad2a-c59c-498d-8ed6-281948498352" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_wlat_smep_mod.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_wlat_smep_mod.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_semi_fc.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_semi_fc.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
