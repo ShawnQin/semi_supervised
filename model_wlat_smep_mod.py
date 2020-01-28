@@ -98,8 +98,9 @@ class Network(object):
                 rng=np.random.RandomState()
                 W_values = np.asarray(
                     rng.uniform(
-                        low=-np.sqrt(6. / (n_in + n_out)),
-                        high=np.sqrt(6. / (n_in + n_out)),
+                        #low=-np.sqrt(6. / (n_in + n_out)),
+                        low = 0,
+                        high=2*np.sqrt(6. / (n_in + n_out)),
                         size=(n_in, n_out)
                     ),
                     dtype=theano.config.floatX
@@ -120,9 +121,9 @@ class Network(object):
             weights_fwd_values = [initialize_layer(size_pre, size_post) for size_pre, size_post in
                               zip(layer_sizes[:-1], layer_sizes[1:])] #R
             #biases_lat_values = [np.zeros((size,), dtype=theano.config.floatX) for size in layer_sizes[1:(-1)]]
-            weights_lat_values = [initialize_layer(size, size, pd_bool=True) for size in layer_sizes[1:(-1)]] #recurrent in all but input and output
+            weights_lat_values = [initialize_layer(size, size, pd_bool=True) for size in layer_sizes[1:]] #recurrent in all but input and output
             print ('W norm: ', np.linalg.norm(weights_fwd_values[0]), np.linalg.norm(weights_fwd_values[1]), ' W norm perelem: ', np.linalg.norm(weights_fwd_values[0])/(784*500), np.linalg.norm(weights_fwd_values[1])/(500*10))
-            print ('M norm: ', np.linalg.norm(weights_lat_values[0]), np.linalg.norm(weights_lat_values[0])/(500*500))
+            print ('M norm: ', np.linalg.norm(weights_lat_values[0]), np.linalg.norm(weights_lat_values[0])/(500*500),'M last: ',np.linalg.norm(weights_lat_values[1]), np.linalg.norm(weights_lat_values[1])/(10*10))
             training_curves = dict()
             training_curves["training error"] = list()
             training_curves["validation error"] = list()
@@ -312,7 +313,7 @@ class Network(object):
 
 
         #Delta_log = [T.sqrt( ((W_new - W) ** 2).mean() ) / T.sqrt( (W ** 2).mean() ) for W,W_new in zip(self.weights['fwd'],weights_fwd_new)]+ [T.sqrt( ((W_new - W) ** 2).mean() ) / T.sqrt( (W ** 2).mean() ) for W,W_new in zip(self.weights['lat'],weights_lat_new)]+[T.sqrt( ((W_new - W) ** 2).mean() ) / T.sqrt( (W ** 2).mean()+eps_norm ) for W,W_new in zip(self.weights['lat'],weights_lat_new)]
-        Signed_delta_log = [((W_new - W)/np.abs(W)).mean() for W, W_new in zip(self.weights['fwd'], weights_fwd_new)]+[((W_new - W)/np.abs(W)).mean() for W, W_new in zip(self.weights['lat'], weights_lat_new)]
+        #Signed_delta_log = [((W_new - W)/np.abs(W)).mean() for W, W_new in zip(self.weights['fwd'], weights_fwd_new)]+[((W_new - W)/np.abs(W)).mean() for W, W_new in zip(self.weights['lat'], weights_lat_new)]
 
         #ENSURE UPDATES IS IN A FORM WHERE CAN BE INDEXED IN BELOW FASHION
         #CHECK BELOW

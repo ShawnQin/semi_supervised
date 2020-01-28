@@ -239,14 +239,14 @@ if __name__=='__main__':
 		n_it_neg=20,
 		n_it_pos=4,
 		epsilon=np.float32(.5),
-		beta=np.float32(100.),
+		beta=np.float32(1.),
 		beta_reg_bool=False,
 		alpha_tdep_type='constant',
 		dataset="mnist",
 		variant="normal",
 		alphas_fwd= [np.float32(0.5), np.float32(0.375)], #0.5, 0.375
         alphas_unsuper=[np.float32(0.001),np.float32(0.0005)],  #Update for unsupervised
-		alphas_lat=[np.float32(0.01),np.float32(0.01)], #CHANGE ALPHA LATERAL HERR, 0.01
+		alphas_lat=[np.float32(0.01),np.float32(0.005)], #CHANGE ALPHA LATERAL HERR, 0.01
         super_thr = np.float32(1),  # The ratio of superivsed samples, in the range of [0,1]
 	)
 	train_net_smep_mod(Network_SMEP_Mod(name, hpd1))
