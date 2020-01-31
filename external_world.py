@@ -5,6 +5,7 @@ import os
 import theano
 import theano.tensor as T
 import theano.tensor.extra_ops
+from sklearn import preprocessing
 
 class External_World(object):
 
@@ -28,8 +29,13 @@ class External_World(object):
 		print 'Loaded'
 		f.close()
 
+		# NORMALIZE AND CENTRAL THE INPUT DATA
+		train_x_values_norm = preprocessing.scale(train_x_values, axis=1)/np.sqrt(784)
+		valid_x_values_norm = preprocessing.scale(valid_x_values, axis=1)/np.sqrt(784)
+		test_x_values_norm = preprocessing.scale(test_x_values, axis=1)/np.sqrt(784)
+
 		# CONCATENATE TRAINING, VALIDATION AND TEST SETS
-		x_values = list(train_x_values) + list(valid_x_values) + list(test_x_values)
+		x_values = list(train_x_values_norm) + list(valid_x_values_norm) + list(test_x_values_norm)
 		y_values = list(train_y_values) + list(valid_y_values) + list(test_y_values)
 		self.x =		theano.shared(np.asarray(x_values, dtype=theano.config.floatX), borrow=True)
 		self.y = T.cast(theano.shared(np.asarray(y_values, dtype=theano.config.floatX), borrow=True), 'int32')

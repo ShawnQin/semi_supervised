@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c968ad2a-c59c-498d-8ed6-281948498352" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/debug.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing_analysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/external_world.py" beforeDir="false" afterPath="$PROJECT_DIR$/external_world.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model_wlat_smep_mod.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_wlat_smep_mod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_wlat_smep_mod_old.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_wlat_smep_mod_old.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_semi_fc.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_semi_fc.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +42,49 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Isolated_Repr1" />
     <property name="settings.editor.selected.configurable" value="pyconsole" />
   </component>
-  <component name="RunManager" selected="Python.train_semi_fc">
+  <component name="RunManager" selected="Python.debug">
+    <configuration name="debug" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="semi_supervised" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/debug.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="external_world" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="semi_supervised" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/external_world.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="plot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="semi_supervised" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -81,6 +127,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="testing_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="semi_supervised" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="THEANO_FLAGS" value="floatX=float32, gcc.cxxflags='-march=core2'" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testing_analysis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="train_model_smep_mod" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="semi_supervised" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -102,7 +170,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="train_semi_fc" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="train_semi_fc" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="semi_supervised" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -126,13 +194,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.semi_supervised" />
-      <item itemvalue="Python.train_model_smep_mod" />
       <item itemvalue="Python.train_semi_fc" />
+      <item itemvalue="Python.train_model_smep_mod" />
       <item itemvalue="Python.plot" />
+      <item itemvalue="Python.testing_analysis" />
+      <item itemvalue="Python.external_world" />
+      <item itemvalue="Python.debug" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.train_semi_fc" />
+        <item itemvalue="Python.debug" />
+        <item itemvalue="Python.external_world" />
+        <item itemvalue="Python.testing_analysis" />
         <item itemvalue="Python.plot" />
         <item itemvalue="Python.train_model_smep_mod" />
       </list>
@@ -164,84 +237,84 @@
     <option name="LAST_COMMIT_MESSAGE" value="add saved file" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="156" y="82" width="1071" height="699" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580223678131">
+    <state x="156" y="82" width="1071" height="699" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580430421471">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="104" y="63" width="1071" height="699" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1580155850754" />
-    <state x="156" y="82" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580223678131" />
+    <state x="156" y="82" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580430421471" />
     <state x="827" y="215" key="#xdebugger.XInspectDialog" timestamp="1580147206678">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="827" y="215" key="#xdebugger.XInspectDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580147206678" />
-    <state x="1035" y="198" key="#xdebugger.evaluate" timestamp="1580252872164">
+    <state x="572" y="92" width="913" height="762" key="#xdebugger.evaluate" timestamp="1580440751778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1035" y="198" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1580252872164" />
+    <state x="572" y="92" width="913" height="762" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1580440751778" />
     <state x="477" y="43" key="CommitChangelistDialog2" timestamp="1580221457264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="477" y="43" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580221457264" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1580220483427">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1580344015099">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580220483427" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580344015099" />
     <state x="394" y="184" key="EnvironmentVariablesDialog" timestamp="1580135939832">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="394" y="184" key="EnvironmentVariablesDialog/0.0.1280.800@0.0.1280.800" timestamp="1580135939832" />
-    <state x="641" y="212" key="FileChooserDialogImpl" timestamp="1580188411457">
+    <state x="641" y="212" key="FileChooserDialogImpl" timestamp="1580345240981">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="427" y="163" key="FileChooserDialogImpl/0.0.1280.800@0.0.1280.800" timestamp="1580136060476" />
-    <state x="641" y="212" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1580188411457" />
-    <state width="1893" height="107" key="GridCell.Tab.0.bottom" timestamp="1580252805808">
+    <state x="641" y="212" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1580345240981" />
+    <state width="1893" height="236" key="GridCell.Tab.0.bottom" timestamp="1580440673855">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1239" height="238" key="GridCell.Tab.0.bottom/0.0.1280.800/-1920.-179.1920.1080@0.0.1280.800" timestamp="1580185280886" />
     <state width="1239" height="238" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1580157439329" />
-    <state width="1893" height="107" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580252805808" />
-    <state width="1893" height="107" key="GridCell.Tab.0.center" timestamp="1580252805808">
+    <state width="1893" height="236" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580440673855" />
+    <state width="1893" height="236" key="GridCell.Tab.0.center" timestamp="1580440673855">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1239" height="238" key="GridCell.Tab.0.center/0.0.1280.800/-1920.-179.1920.1080@0.0.1280.800" timestamp="1580185280884" />
     <state width="1239" height="238" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1580157439328" />
-    <state width="1893" height="107" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580252805808" />
-    <state width="1893" height="107" key="GridCell.Tab.0.left" timestamp="1580252805808">
+    <state width="1893" height="236" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580440673855" />
+    <state width="1893" height="236" key="GridCell.Tab.0.left" timestamp="1580440673855">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1239" height="238" key="GridCell.Tab.0.left/0.0.1280.800/-1920.-179.1920.1080@0.0.1280.800" timestamp="1580185280883" />
     <state width="1239" height="238" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1580157439326" />
-    <state width="1893" height="107" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580252805808" />
-    <state width="1893" height="107" key="GridCell.Tab.0.right" timestamp="1580252805808">
+    <state width="1893" height="236" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580440673855" />
+    <state width="1893" height="236" key="GridCell.Tab.0.right" timestamp="1580440673855">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1239" height="238" key="GridCell.Tab.0.right/0.0.1280.800/-1920.-179.1920.1080@0.0.1280.800" timestamp="1580185280885" />
     <state width="1239" height="238" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1580157439328" />
-    <state width="1893" height="107" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580252805808" />
-    <state width="1893" height="107" key="GridCell.Tab.1.bottom" timestamp="1580252807145">
+    <state width="1893" height="236" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580440673855" />
+    <state width="1893" height="236" key="GridCell.Tab.1.bottom" timestamp="1580440681755">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1239" height="238" key="GridCell.Tab.1.bottom/0.0.1280.800/-1920.-179.1920.1080@0.0.1280.800" timestamp="1580185280889" />
     <state width="1239" height="238" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1580157459194" />
-    <state width="1893" height="107" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580252807145" />
-    <state width="1893" height="107" key="GridCell.Tab.1.center" timestamp="1580252807145">
+    <state width="1893" height="236" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580440681755" />
+    <state width="1893" height="236" key="GridCell.Tab.1.center" timestamp="1580440681754">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1239" height="238" key="GridCell.Tab.1.center/0.0.1280.800/-1920.-179.1920.1080@0.0.1280.800" timestamp="1580185280887" />
     <state width="1239" height="238" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1580157459192" />
-    <state width="1893" height="107" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580252807145" />
-    <state width="1893" height="107" key="GridCell.Tab.1.left" timestamp="1580252807144">
+    <state width="1893" height="236" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580440681754" />
+    <state width="1893" height="236" key="GridCell.Tab.1.left" timestamp="1580440681754">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1239" height="238" key="GridCell.Tab.1.left/0.0.1280.800/-1920.-179.1920.1080@0.0.1280.800" timestamp="1580185280887" />
     <state width="1239" height="238" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1580157459191" />
-    <state width="1893" height="107" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580252807144" />
-    <state width="1893" height="107" key="GridCell.Tab.1.right" timestamp="1580252807145">
+    <state width="1893" height="236" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580440681754" />
+    <state width="1893" height="236" key="GridCell.Tab.1.right" timestamp="1580440681754">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1239" height="238" key="GridCell.Tab.1.right/0.0.1280.800/-1920.-179.1920.1080@0.0.1280.800" timestamp="1580185280888" />
     <state width="1239" height="238" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1580157459193" />
-    <state width="1893" height="107" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580252807145" />
+    <state width="1893" height="236" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580440681754" />
     <state x="440" y="202" key="IDE.errors.dialog" timestamp="1580251042678">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -251,15 +324,15 @@
     </state>
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1580140916373" />
     <state x="282" y="137" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580158750504" />
-    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1580146998022">
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1580438661946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1580146998022" />
-    <state x="441" y="304" key="com.intellij.ide.util.TipDialog" timestamp="1580164243161">
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1580438661946" />
+    <state x="441" y="304" key="com.intellij.ide.util.TipDialog" timestamp="1580337837448">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="294" y="234" key="com.intellij.ide.util.TipDialog/0.0.1280.800@0.0.1280.800" timestamp="1580155833782" />
-    <state x="441" y="304" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580164243161" />
+    <state x="441" y="304" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580337837448" />
     <state x="281" y="187" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1580161726278">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -275,18 +348,33 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/train_model_smep_mod.py</url>
-          <line>154</line>
-          <option name="timeStamp" value="28" />
+          <line>234</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/train_model_smep_mod.py</url>
-          <line>204</line>
-          <option name="timeStamp" value="31" />
+          <url>file://$PROJECT_DIR$/testing_analysis.py</url>
+          <line>142</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/train_model_smep_mod.py</url>
-          <line>175</line>
-          <option name="timeStamp" value="32" />
+          <url>file://$PROJECT_DIR$/testing_analysis.py</url>
+          <line>156</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/testing_analysis.py</url>
+          <line>145</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/debug.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/external_world.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -118,7 +118,7 @@ class Network(object):
             weights_fwd_values = [initialize_layer(size_pre, size_post) for size_pre, size_post in
                               zip(layer_sizes[:-1], layer_sizes[1:])] #R
             #biases_lat_values = [np.zeros((size,), dtype=theano.config.floatX) for size in layer_sizes[1:(-1)]]
-            weights_lat_values = [initialize_layer(size, size, pd_bool=True) for size in layer_sizes[1:(-1)]] #recurrent in all but input and output
+            weights_lat_values = [initialize_layer(size, size, pd_bool=True) for size in layer_sizes[1:-1]] #recurrent in all but input and output
             print ('W norm: ', np.linalg.norm(weights_fwd_values[0]), np.linalg.norm(weights_fwd_values[1]), ' W norm perelem: ', np.linalg.norm(weights_fwd_values[0])/(784*500), np.linalg.norm(weights_fwd_values[1])/(500*10))
             print ('M norm: ', np.linalg.norm(weights_lat_values[0]), np.linalg.norm(weights_lat_values[0])/(500*500))
             training_curves = dict()

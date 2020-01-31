@@ -98,14 +98,17 @@ class Network(object):
                 rng=np.random.RandomState()
                 W_values = np.asarray(
                     rng.uniform(
-                        #low=-np.sqrt(6. / (n_in + n_out)),
-                        low = 0,
-                        high=2*np.sqrt(6. / (n_in + n_out)),
+                        low=-np.sqrt(6. / (n_in + n_out)),
+                        #low = 0,
+                        high= np.sqrt(6. / (n_in + n_out)),
                         size=(n_in, n_out)
                     ),
                     dtype=theano.config.floatX
                 )
+                # due to the transpose, renormalize
                 W_values = np.matmul(W_values, W_values.transpose())
+                #W_values = np.identity(n_out)
+                #W_values = np.matmul(W_values, W_values.transpose())*np.sqrt(6. / (n_in + n_out))
             return W_values
 
         if os.path.isfile(self.path): #loads weights from the .save file for all subsequent epochs
@@ -121,9 +124,10 @@ class Network(object):
             weights_fwd_values = [initialize_layer(size_pre, size_post) for size_pre, size_post in
                               zip(layer_sizes[:-1], layer_sizes[1:])] #R
             #biases_lat_values = [np.zeros((size,), dtype=theano.config.floatX) for size in layer_sizes[1:(-1)]]
-            weights_lat_values = [initialize_layer(size, size, pd_bool=True) for size in layer_sizes[1:]] #recurrent in all but input and output
+            weights_lat_values = [initialize_layer(size, size, pd_bool=True) for size in layer_sizes[1:-1]] #recurrent in all but input and output
             print ('W norm: ', np.linalg.norm(weights_fwd_values[0]), np.linalg.norm(weights_fwd_values[1]), ' W norm perelem: ', np.linalg.norm(weights_fwd_values[0])/(784*500), np.linalg.norm(weights_fwd_values[1])/(500*10))
-            print ('M norm: ', np.linalg.norm(weights_lat_values[0]), np.linalg.norm(weights_lat_values[0])/(500*500),'M last: ',np.linalg.norm(weights_lat_values[1]), np.linalg.norm(weights_lat_values[1])/(10*10))
+            #print ('M norm: ', np.linalg.norm(weights_lat_values[0]), np.linalg.norm(weights_lat_values[0])/(500*500),'M last: ',np.linalg.norm(weights_lat_values[1]), np.linalg.norm(weights_lat_values[1])/(10*10))
+            print ('M norm: ', np.linalg.norm(weights_lat_values[0]), np.linalg.norm(weights_lat_values[0])/(500*500))
             training_curves = dict()
             training_curves["training error"] = list()
             training_curves["validation error"] = list()
@@ -156,10 +160,8 @@ class Network(object):
         #linear_terms -= sum([T.dot(rho(layer), b) for layer, b in zip(layers[1:(-1)], self.biases['lat'])])
         quadratic_terms = - sum([T.batched_dot(T.dot(self.rho(pre), W), self.rho(post)) for pre, W, post in
                                  zip(layers[:-1], self.weights['fwd'], layers[1:])]) #R
-        # quad_lat = sum([T.batched_dot(T.dot(self.rho(node), W), self.rho(node)) for W, node in
-        #                          zip(self.weights['lat'], layers[1:(-1)])]) / 2.0
         quad_lat = sum([T.batched_dot(T.dot(self.rho(node), W), self.rho(node)) for W, node in
-                        zip(self.weights['lat'], layers[1:])]) / 2.0
+                        zip(self.weights['lat'], layers[1:-1])]) / 2.0
             #CHECK IF ONE SHOULD BE THE TRANSPOSE, AND IF CONSTANT FACTOR OF 0.5
         if longbool==0:
             return squared_norm + linear_terms + quadratic_terms +quad_lat
@@ -309,8 +311,7 @@ class Network(object):
         weights_fwd_new = [W - alpha * dot for W, alpha, dot in zip(self.weights['fwd'], alphas_fwd, weights_fwd_dot)] #Eq13
         weights_lat_new = [W + alpha * (dot - W/(2.0*np.abs(beta))) for W, alpha, dot in
                            zip(self.weights['lat'], alphas_lat, weights_lat_dot)]  #SMEP
-        Delta_log = [T.sqrt( ((W_new - W) ** 2).mean() ) / T.sqrt( (W ** 2).mean() ) for W,W_new in zip(self.weights['fwd'],weights_fwd_new)]+ [T.sqrt( ((W_new - W) ** 2).mean() ) / T.sqrt( (W ** 2).mean() ) for W,W_new in zip(self.weights['lat'],weights_lat_new)]
-
+        Delta_log = [T.sqrt( ((W_new - W) ** 2).mean() ) / T.sqrt( (W ** 2).mean() ) for W,W_new in zip(self.weights['fwd'],weights_fwd_new)]+ [T.sqrt( ((W_new - W) ** 2).mean() ) / T.sqrt( (W ** 2).mean() ) for W,W_new in zip(self.weights['lat'],weights_lat_new)] + weights_lat_dot
 
         #Delta_log = [T.sqrt( ((W_new - W) ** 2).mean() ) / T.sqrt( (W ** 2).mean() ) for W,W_new in zip(self.weights['fwd'],weights_fwd_new)]+ [T.sqrt( ((W_new - W) ** 2).mean() ) / T.sqrt( (W ** 2).mean() ) for W,W_new in zip(self.weights['lat'],weights_lat_new)]+[T.sqrt( ((W_new - W) ** 2).mean() ) / T.sqrt( (W ** 2).mean()+eps_norm ) for W,W_new in zip(self.weights['lat'],weights_lat_new)]
         #Signed_delta_log = [((W_new - W)/np.abs(W)).mean() for W, W_new in zip(self.weights['fwd'], weights_fwd_new)]+[((W_new - W)/np.abs(W)).mean() for W, W_new in zip(self.weights['lat'], weights_lat_new)]
@@ -390,19 +391,19 @@ class Network(object):
         Delta_log = [T.sqrt(((W_new - W) ** 2).mean()) / T.sqrt( (W ** 2).mean() ) for W,W_new in zip(self.weights['fwd'],weights_fwd_new)] + [T.sqrt( ((W_new - W) ** 2).mean() ) / T.sqrt( (W ** 2).mean() ) for W,W_new in zip(self.weights['lat'],weights_lat_new)]
         
         #updates = dict()
-        for bias, bias_new in zip(self.biases['fwd'], biases_fwd_new):
-            updates[bias] = bias_new
-
-        for weight, weight_new in zip(self.weights['fwd'], weights_fwd_new):
-            updates[weight] = weight_new
-
-        for weight, weight_new in zip(self.weights['lat'], weights_lat_new):
-            updates[weight] = weight_new
+        # for bias, bias_new in zip(self.biases['fwd'], biases_fwd_new):
+        #     updates[bias] = bias_new
+        #
+        # for weight, weight_new in zip(self.weights['fwd'], weights_fwd_new):
+        #     updates[weight] = weight_new
+        #
+        # for weight, weight_new in zip(self.weights['lat'], weights_lat_new):
+        #     updates[weight] = weight_new
 
         unsupervised_phase = theano.function( #SV Inputs: network weights, the updates are applied to the weights
             inputs=[n_iterations, epsilon, beta] + alphas,
             outputs=Delta_log,
-            #on_unused_input='ignore',
+            on_unused_input='ignore',
             updates=updates
         )
 
